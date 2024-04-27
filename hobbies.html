@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hobbies</title>
+    <style>
+        /* Internal CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        main {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Leninkumar's Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="loadPage('index.html'); return false;">Home</a></li>
+                <li><a href="#" onclick="loadPage('about.html'); return false;">About</a></li>
+                <li><a href="#" onclick="loadPage('hobbies.html'); return false;">Hobbies</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hobbies">
+            <h2>My Hobbies</h2>
+            <ul>
+                <li>Listening to music</li>
+                <li>Playing BGMI</li>
+                <li>Sleeping</li>
+                <li>Playing outdoor games</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Leninkumar | NIT Kurukshetra</p>
+    </footer>
+
+    <script>
+        // Internal JavaScript
+        function loadPage(url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    document.querySelector('main').innerHTML = html;
+                    history.pushState({}, '', url); // Update the URL
+                })
+                .catch(error => console.error('Error fetching page:', error));
+        }
+    </script>
+</body>
+</html>
